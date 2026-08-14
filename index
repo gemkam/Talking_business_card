@@ -62,4 +62,5 @@
         }
     </script>
 </body>
+npx plugins add vercel/vercel-plugin
 </html>
