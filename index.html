@@ -22,28 +22,8 @@
 
         <!-- Action Buttons -->
         <div class="mt-6 space-y-3">
-          <script>  <button onclick=async function talkToMe() {
-  const userMessage = prompt("Ask the KS TECH LLC assistant a question:");
-  if (!userMessage) return;
-
-  try {
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMessage })
-    });
-    
-    const data = await response.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Hello! I am the KS TECH LLC digital assistant.";
-    
-    alert(reply);
-  } catch (err) {
-    console.error("Error:", err);
-    alert("Error connecting to assistant.");
-  }
-}
-            </script>   
-         🎙️ Talk to me
+            <button onclick="talkToMe()" class="block w-full py-3 px-4 bg-cyan-600 hover:bg-cyan-500 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2 text-white cursor-pointer shadow-lg">
+                🎙️ Talk to me
             </button>
             <a href="tel:+96875242653" class="block w-full py-3 px-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2">
                 📞 Call +968 7524 2653
@@ -76,11 +56,27 @@
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        // Talk to me button action
-        function talkToMe() {
-            alert("Hello! I am the KS TECH LLC digital assistant. For any specific inquiries I am unsure about, please reach out directly via WhatsApp or Email.");
+        // Secure Talk to me button action via Serverless Proxy
+        async function talkToMe() {
+            const userMessage = prompt("Ask the KS TECH LLC assistant a question:");
+            if (!userMessage) return;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: userMessage })
+                });
+                
+                const data = await response.json();
+                const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Hello! I am the KS TECH LLC digital assistant.";
+                
+                alert(reply);
+            } catch (err) {
+                console.error("Error:", err);
+                alert("Error connecting to assistant.");
+            }
         }
     </script>
 </body>
-npx plugins add vercel/vercel-plugin
 </html>
