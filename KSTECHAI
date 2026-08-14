@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamran Zia Siddiquee | KS TECH LLC</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- QR Code Generator Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl text-center">
+        <!-- Profile Header -->
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center text-3xl font-bold justify-center text-white shadow-lg">
+            KZ
+        </div>
+        <h1 class="text-2xl font-bold tracking-tight">Kamran Zia Siddiquee</h1>
+        <p class="text-cyan-400 font-medium text-sm mt-1">Managing Partner | KS TECH LLC</p>
+        <p class="text-slate-400 text-xs mt-2 px-4">IT Infrastructure, Enterprise Hardware & Digital Transformation</p>
+
+        <!-- Action Buttons -->
+        <div class="mt-6 space-y-3">
+            <button onclick="talkToMe()" class="block w-full py-3 px-4 bg-cyan-600 hover:bg-cyan-500 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2 text-white cursor-pointer shadow-lg">
+                🎙️ Talk to me
+            </button>
+            <a href="tel:+96875242653" class="block w-full py-3 px-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2">
+                📞 Call +968 7524 2653
+            </a>
+            <a href="https://wa.me/96875242653" target="_blank" class="block w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2 text-white">
+                💬 WhatsApp Chat
+            </a>
+            <a href="mailto:kzs000@gmail.com" class="block w-full py-3 px-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-medium transition text-sm flex items-center justify-center gap-2">
+                ✉️ kzs000@gmail.com
+            </a>
+        </div>
+
+        <!-- Built-in Screen QR Code Section -->
+        <div class="mt-8 pt-6 border-t border-slate-800">
+            <p class="text-xs text-slate-400 mb-3 uppercase tracking-wider font-semibold">Share This Card Instantly</p>
+            <div id="qrcode" class="bg-white p-3 inline-block rounded-xl shadow-md"></div>
+            <p class="text-[11px] text-slate-500 mt-2">Point phone camera here to scan</p>
+        </div>
+    </div>
+
+    <!-- Scripting for QR and Voice Action -->
+    <script>
+        // Generate QR Code
+        new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,
+            width: 130,
+            height: 130,
+            colorDark: "#020617",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Talk to me button action
+        function talkToMe() {
+            alert("Hello! I am the KS TECH LLC digital assistant. For any specific inquiries I am unsure about, please reach out directly via WhatsApp or Email.");
+        }
+    </script>
+</body>
+</html>
